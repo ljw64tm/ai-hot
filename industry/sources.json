@@ -1,278 +1,339 @@
 {
-  "$comment": "示范信源：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台“信源”里新建、修改和暂停。字段说明见 docs/customize.md。",
+  "$comment": "示范信源：首次启动时导入（scripts/seed.ts），已存在的 id 不会被覆盖；从库里删掉旧站的信源后重启才会导入这一批。之后在后台“信源”里新建、修改和暂停。下面每个 rss 的 feedUrl、以及《心理学报》的选择器，都是 2026-10-15 在本机实测可达并返回条目的（Nature Human Behaviour 的 rss 已下线，故未收录）。",
   "sources": [
     {
-      "id": "rss-openai-news",
-      "name": "OpenAI News",
-      "kind": "rss",
+      "id": "web-xinlibao-latest",
+      "name": "心理学报（最新录用）",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://openai.com/news/rss.xml",
+        "url": "https://journal.psych.ac.cn/xlxb/CN/article/showNewArticle.do",
+        "parseMode": "html",
+        "itemSelector": "div[id^=\"art\"]",
+        "linkSelector": "a.txt_biaoti",
+        "titleSelector": "a.txt_biaoti",
+        "publishedAtSelector": "span.abs_njq",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://journal.psych.ac.cn/xlxb/CN/10.3724/"
+        ],
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 20
         }
       },
       "tier": "T1",
-      "owner_entity_id": "openai",
+      "owner_entity_id": "china-journal",
       "participation_mode": "editorial",
-      "interval_minutes": 120,
+      "interval_minutes": 360,
       "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-google-deepmind",
-      "name": "Google DeepMind",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://deepmind.google/blog/rss.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "google",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-google-research",
-      "name": "Google Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://research.google/blog/rss/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "google",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
+        "期刊",
+        "中文",
         "研究"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-hugging-face",
-      "name": "Hugging Face Blog",
+      "id": "rss-nature-machine-intelligence",
+      "name": "Nature Machine Intelligence",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://huggingface.co/blog/feed.xml",
+        "feedUrl": "https://www.nature.com/natmachintell.rss",
         "_aihot": {
           "initialBackfillLimit": 8
         }
       },
       "tier": "T1",
-      "owner_entity_id": "hugging-face",
+      "owner_entity_id": "nature",
       "participation_mode": "editorial",
       "interval_minutes": 120,
       "tags": [
-        "官方",
-        "开源"
+        "期刊",
+        "人工智能"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-microsoft-research",
-      "name": "Microsoft Research",
+      "id": "rss-journal-economic-psychology",
+      "name": "Journal of Economic Psychology",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.microsoft.com/en-us/research/feed/",
+        "feedUrl": "https://rss.sciencedirect.com/publication/science/01674870",
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "journal-of-economic-psychology",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "期刊",
+        "经济决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-obhdp",
+      "name": "Organizational Behavior and Human Decision Processes",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://rss.sciencedirect.com/publication/science/07495978",
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "obhdp",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "期刊",
+        "经济决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-cognition",
+      "name": "Cognition",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://rss.sciencedirect.com/publication/science/00100277",
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "cognition-journal",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "期刊",
+        "认知"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-frontiers-behavioral-economics",
+      "name": "Frontiers in Behavioral Economics",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.frontiersin.org/journals/behavioral-economics/rss",
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "frontiers-behavioral-economics",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": [
+        "期刊",
+        "经济决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-jbdm",
+      "name": "Journal of Behavioral Decision Making",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://onlinelibrary.wiley.com/feed/10990771/most-recent",
         "_aihot": {
           "initialBackfillLimit": 8
         }
       },
       "tier": "T1",
-      "owner_entity_id": "microsoft",
+      "owner_entity_id": "jbdm",
       "participation_mode": "editorial",
-      "interval_minutes": 120,
+      "interval_minutes": 240,
       "tags": [
-        "官方",
+        "期刊",
+        "经济决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-springer-risk-uncertainty",
+      "name": "Journal of Risk and Uncertainty",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://link.springer.com/search.rss?facet-journal-id=11166",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "springer-jru",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "期刊",
+        "经济决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-management-science",
+      "name": "Management Science",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://pubsonline.informs.org/action/showFeed?type=etoc&feed=rss&jc=mnsc",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "management-science",
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": [
+        "期刊",
+        "经济决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-information-systems-research",
+      "name": "Information Systems Research",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://pubsonline.informs.org/action/showFeed?type=etoc&feed=rss&jc=isre",
+        "_aihot": {
+          "initialBackfillLimit": 6
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "information-systems-research",
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": [
+        "期刊",
+        "人工智能"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-arxiv-econ-gn",
+      "name": "arXiv · econ.GN（行为与实验经济）",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://rss.arxiv.org/rss/econ.GN",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "预印本",
+        "经济决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-psychological-science",
+      "name": "Psychological Science（APS）",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.psychologicalscience.org/feed",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "psych-science",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": [
+        "期刊",
+        "学会"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-plos-one-psychology",
+      "name": "PLOS ONE · 心理学",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://journals.plos.org/plosone/feed/atom?subjectArea=Psychology",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "plos",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "期刊",
         "研究"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-nvidia-blog",
-      "name": "NVIDIA Blog",
+      "id": "rss-frontiers-psychology",
+      "name": "Frontiers in Psychology",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://blogs.nvidia.com/feed/",
+        "feedUrl": "https://www.frontiersin.org/journals/psychology/rss",
         "_aihot": {
           "initialBackfillLimit": 8
         }
       },
-      "tier": "T1",
-      "owner_entity_id": "nvidia",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-aws-ml",
-      "name": "AWS Machine Learning Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://aws.amazon.com/blogs/machine-learning/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "教程"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-github-ai",
-      "name": "GitHub Blog · AI & ML",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://github.blog/ai-and-ml/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-mistral",
-      "name": "Mistral AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://mistral.ai/news/rss",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-bair",
-      "name": "Berkeley AI Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://bair.berkeley.edu/blog/feed.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
+      "tier": "T2",
+      "owner_entity_id": "frontiers-psychology",
       "participation_mode": "editorial",
       "interval_minutes": 180,
       "tags": [
+        "期刊",
         "研究"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-the-verge-ai",
-      "name": "The Verge · AI",
+      "id": "rss-nature-mental-health",
+      "name": "Nature Mental Health",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+        "feedUrl": "https://www.nature.com/natmentalhealth.rss",
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 6
         }
       },
-      "tier": "T2",
-      "owner_entity_id": null,
+      "tier": "T1",
+      "owner_entity_id": "nature",
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 180,
       "tags": [
-        "媒体"
+        "期刊",
+        "临床"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-techcrunch-ai",
-      "name": "TechCrunch · AI",
+      "id": "rss-sciencedaily-psychology",
+      "name": "ScienceDaily · 心理学研究",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "feedUrl": "https://www.sciencedaily.com/rss/mind_brain/psychology.xml",
         "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-ars-technica-ai",
-      "name": "Ars Technica · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://arstechnica.com/ai/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-mit-tech-review-ai",
-      "name": "MIT Technology Review · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 10
         }
       },
       "tier": "T2",
@@ -280,88 +341,50 @@
       "participation_mode": "editorial",
       "interval_minutes": 120,
       "tags": [
-        "媒体"
+        "媒体",
+        "研究"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-the-decoder",
-      "name": "The Decoder",
+      "id": "rss-psypost",
+      "name": "PsyPost",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://the-decoder.com/feed/",
+        "feedUrl": "https://www.psypost.org/feed/",
         "_aihot": {
           "initialBackfillLimit": 8
         }
       },
       "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-simon-willison",
-      "name": "Simon Willison",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://simonwillison.net/atom/everything/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
+      "owner_entity_id": "psypost",
       "participation_mode": "editorial",
       "interval_minutes": 120,
       "tags": [
-        "个人"
+        "媒体",
+        "研究"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-import-ai",
-      "name": "Import AI",
+      "id": "rss-psychology-today",
+      "name": "Psychology Today · 最新",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://importai.substack.com/feed",
+        "feedUrl": "https://www.psychologytoday.com/us/front/feed",
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 6
         }
       },
       "tier": "T2",
-      "owner_entity_id": null,
+      "owner_entity_id": "psychology-today",
       "participation_mode": "editorial",
-      "interval_minutes": 180,
+      "interval_minutes": 240,
       "tags": [
-        "个人",
-        "周刊"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-latent-space",
-      "name": "Latent Space",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.latent.space/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "个人"
+        "媒体",
+        "科普"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false

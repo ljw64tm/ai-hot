@@ -68,8 +68,8 @@ export function McpPanel(props: AgentPanelProps) {
             [<Mono>{T.hot}</Mono>, "当前热点榜 Top 10", "现在最热的是什么？"],
             [<Mono>{T.story}</Mono>, "一个热点事件的时间线和持续更新的综述", "这件事的来龙去脉？"],
             [<Mono>{T.daily}</Mono>, subjectAfter("最新或指定日期的", "日报"), "给我今天的日报。"],
-            [<Mono>{T.weekly}</Mono>, subjectAfter("最新或指定一周的", "周报"), `${subjectAfter("这周", "圈")}有哪些大事？`],
-            [<Mono>{T.monthly}</Mono>, subjectAfter("最新或指定月份的", "月报"), `${subjectAfter("上个月", "圈")}发生了什么？`],
+            [<Mono>{T.weekly}</Mono>, subjectAfter("最新或指定一周的", "周报"), "这周有哪些大事？"],
+            [<Mono>{T.monthly}</Mono>, subjectAfter("最新或指定月份的", "月报"), "上个月发生了什么？"],
             ...AGENT_PARTS.flatMap((a) => a.tools ?? []).map((t) => [<Mono>{t.name}</Mono>, t.does, t.ask]),
           ]}
         />

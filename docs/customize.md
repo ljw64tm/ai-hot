@@ -147,6 +147,6 @@ DATABASE_URL=postgres://…/myhot_test npm test     # 库名必须以 _test 或 
 node scripts/smoke.ts --base http://localhost:3000   # 站点跑起来以后
 ```
 
-改写提示词、重新校准门槛不会让测试失败：测试按每一步实际渲染出的提示词认请求，门槛从 `industry/selection.ts` 读。`tests/` 里有些测试用的是示例行业的分类、标签和公司（比如 `ai-models`、“模型发布”、Anthropic）。改了 `industry/taxonomy.ts` 以后这些测试会失败，把例子换成你行业里的对应项即可，测的规则本身不用改。
+改写提示词、重新校准门槛不会让测试失败：测试按每一步实际渲染出的提示词认请求，门槛从 `industry/selection.ts` 读。`tests/` 里有些测试用的是示例行业的分类、标签和公司（比如 `ai-models`、“模型发布”、Anthropic）。这个站换成心理学以后，这些用例的夹具要换成新行业的对应项（例如 `research`、“论文/研究”、`apa`）；测的规则本身不用改，也不影响本站运行。
 
 然后打开网站看一眼首页、全部动态、日报、主题页和关于页，再去后台“信源”页看信源是不是都抓成功了。
