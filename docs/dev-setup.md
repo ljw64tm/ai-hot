@@ -21,7 +21,7 @@ node scripts/init-env.ts --llm-key <你的模型 API Key>
 ```
 
 生成 `.env`，随机密钥和管理员密码都已经填好（密码只打印这一次，也存在 `.env` 的 `ADMIN_PASSWORD` 里）。没传 `--llm-key` 的话自己去 `.env` 补上 `LLM_API_KEY`。
-
+ 
 本机直接跑（不用 Docker 的 `db` 容器）时，建一个数据库，再在 `.env` 里加两行：
 
 ```bash
@@ -35,7 +35,7 @@ API_BASE_URL=http://127.0.0.1:3001
 
 这两行默认在 `.env.example` 里是注释掉的（"不用 Docker、直接在本机跑时才需要"那一节），取消注释填好就行。想在开发时免登录进 `/admin`，再加一行 `DEV_AUTH_ROLE=admin`（生产环境会拒绝启动，不用担心带到线上）。
 
-## 跑起来
+## 跑起来-在ai-hot目录下执行
 
 ```bash
 node --env-file=.env scripts/migrate.ts   # 建表

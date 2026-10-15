@@ -22,7 +22,18 @@
 
 ## 模型怎么选（`editorial/models.ts`）
 
-每一步（prefilter/score/structure/understand/summarize/wording/group/groupReview/digest/report/translate……）按三层优先级选模型：**后台"模型与评测"页的设置**（存数据库，有审计）→ **环境变量**（如 `SCORE_MODEL`）→ **`site/models.ts` 的 `DEFAULTS`**，都没写就用 `.env` 的 `LLM_*` 默认模型。选择结果缓存 60 秒。`CAPABILITIES` 登记每一步该用哪个回执用途、是否需要看图能力。
+默认所有步骤共用 `.env` 里的 `LLM_*`，不配置额外的东西也能跑。要不要分步骤换模型，看是否踩中下面几条，不是必须做的事：
+
+- **调用量和任务难度不匹配**：prefilter、score 这类调用量大但单次任务简单，适合便宜快的模型；写作、理解需要判断力，才值得用更贵的模型。
+- **要不要"思考"（reasoning）**：答案确定、不需要推理的任务（比如结构抽取）关掉 `thinking` 省 token 和延迟；需要判断力的任务（评分、归组复核）开着 `thinking` 换更稳的结果。
+- **要不要看图**：只有 `understand`（能看图时带首图）这类步骤需要 `vision` 能力的模型，其余步骤没必要为这个多付成本。
+- **复核步骤建议换一家厂商**：`groupReview` 是在主模型判断完之后再复核一遍，同一个模型的系统性偏差容易被"复核"原样确认一次，换一家服务商能多一道独立校验。
+
+配置和解析逻辑：每一步（prefilter/score/structure/understand/summarize/wording/group/groupReview/digest/report/translate……）按三层优先级选模型：**后台"模型与评测"页的设置**（存 `settings` 表，有审计）→ **环境变量**（如 `SCORE_MODEL`）→ **`site/models.ts` 的 `DEFAULTS`**，都没写就用 `.env` 的 `LLM_*` 默认模型。选择结果缓存 60 秒，改了立刻生效不用重启，但只影响之后的调用，已经写好的历史判断不会重新跑一遍。
+
+`CAPABILITIES` 登记每一步的 `label`（后台显示名）、`env`（对应环境变量名）、`default`（代码默认值）、`purposes`（产生哪些回执用途，供后台统计）、`vision`（是否要求模型能看图）、`idle`（这个站没有这个步骤的需要时，对应服务故障不报警，比如没配 `industry/wording.ts` 时 `wording` 步骤不跑也不告警）。
+
+新增一个具名模型，在 `site/models.ts` 的 `PRESETS` 里加一条：`service`/`model` 标识、`baseUrlEnv`/`apiKeyEnv`（各自的地址和密钥环境变量名，真实值配在 `.env`）、`extra`（额外请求字段，比如开关 `thinking`）、`reasoningTokens`（推理模型的输出额度，不留的话推理会把每一步的输出额度用光导致答案为空）、`jsonMode`、`vision`。配好后用 `DEFAULTS`、环境变量或后台页三种方式之一指定哪个步骤用它。`modelFor(capability)` 按上面的优先级解析出当前该用的模型名再传给 `chatJson`，调用方代码不用因为换模型而改。
 
 ## 付费调用：回执与预算（`providers/`）
 
