@@ -1,37 +1,6 @@
 {
-  "$comment": "示范信源：首次启动时导入（scripts/seed.ts），已存在的 id 不会被覆盖；从库里删掉旧站的信源后重启才会导入这一批。之后在后台“信源”里新建、修改和暂停。下面每个 rss 的 feedUrl、以及《心理学报》的选择器，都是 2026-10-15 在本机实测可达并返回条目的（Nature Human Behaviour 的 rss 已下线，故未收录）。",
+  "$comment": "示范信源：首次启动时导入（scripts/seed.ts），已存在的 id 不会被覆盖；从库里删掉旧站的信源后重启才会导入这一批。之后在后台“信源”里新建、修改和暂停。下面每个 rss/json_list 的地址都是 2026-10-16 在本机实测可达并返回条目的。这个站围绕一个具体的中介调节模型：AI 谄媚通过心理特权感（中介）影响炫耀性消费，自我概念清晰度（调节）。除了整刊订阅，这一批还加了三种按关键词检索的信源：arXiv 官方检索 API（标题/摘要含 sycophancy、conspicuous consumption 等词）、OpenAlex 的 title_and_abstract 短语检索（覆盖已发表论文和预印本，给谄媚、炫耀性消费、心理特权感、自我概念清晰度各配了一条；免费层每天有共享额度，想要更稳可以自己去 openalex.org/settings/api 申请免费 key 加进地址）、以及用 Crossref 按期刊 ISSN 查最新文章（给没有公开 RSS 的期刊，比如 Journal of Consumer Research、Journal of Personality and Social Psychology，当 TOC 提醒用）。心理特权感和自我概念清晰度是成熟的社会/人格心理学构念，几乎不出现在 arXiv 上，所以这两个只配了 OpenAlex，没配 arXiv。",
   "sources": [
-    {
-      "id": "web-xinlibao-latest",
-      "name": "心理学报（最新录用）",
-      "kind": "web_list",
-      "config": {
-        "url": "https://journal.psych.ac.cn/xlxb/CN/article/showNewArticle.do",
-        "parseMode": "html",
-        "itemSelector": "div[id^=\"art\"]",
-        "linkSelector": "a.txt_biaoti",
-        "titleSelector": "a.txt_biaoti",
-        "publishedAtSelector": "span.abs_njq",
-        "publishedAtUtcOffset": "+08:00",
-        "allowUrlPrefixes": [
-          "https://journal.psych.ac.cn/xlxb/CN/10.3724/"
-        ],
-        "_aihot": {
-          "initialBackfillLimit": 20
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "china-journal",
-      "participation_mode": "editorial",
-      "interval_minutes": 360,
-      "tags": [
-        "期刊",
-        "中文",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
     {
       "id": "rss-nature-machine-intelligence",
       "name": "Nature Machine Intelligence",
@@ -69,49 +38,7 @@
       "interval_minutes": 240,
       "tags": [
         "期刊",
-        "经济决策"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-obhdp",
-      "name": "Organizational Behavior and Human Decision Processes",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rss.sciencedirect.com/publication/science/07495978",
-        "_aihot": {
-          "initialBackfillLimit": 10
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "obhdp",
-      "participation_mode": "editorial",
-      "interval_minutes": 240,
-      "tags": [
-        "期刊",
-        "经济决策"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-cognition",
-      "name": "Cognition",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rss.sciencedirect.com/publication/science/00100277",
-        "_aihot": {
-          "initialBackfillLimit": 10
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "cognition-journal",
-      "participation_mode": "editorial",
-      "interval_minutes": 240,
-      "tags": [
-        "期刊",
-        "认知"
+        "消费决策"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
@@ -132,7 +59,7 @@
       "interval_minutes": 180,
       "tags": [
         "期刊",
-        "经济决策"
+        "消费决策"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
@@ -153,70 +80,298 @@
       "interval_minutes": 240,
       "tags": [
         "期刊",
-        "经济决策"
+        "判断/偏差"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-springer-risk-uncertainty",
-      "name": "Journal of Risk and Uncertainty",
+      "id": "rss-journal-consumer-psychology",
+      "name": "Journal of Consumer Psychology",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://link.springer.com/search.rss?facet-journal-id=11166",
+        "feedUrl": "https://onlinelibrary.wiley.com/feed/15327663/most-recent",
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 10
         }
       },
       "tier": "T1",
-      "owner_entity_id": "springer-jru",
+      "owner_entity_id": "journal-of-consumer-psychology",
       "participation_mode": "editorial",
       "interval_minutes": 240,
       "tags": [
         "期刊",
-        "经济决策"
+        "消费决策"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-management-science",
-      "name": "Management Science",
+      "id": "rss-journal-business-research",
+      "name": "Journal of Business Research",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://pubsonline.informs.org/action/showFeed?type=etoc&feed=rss&jc=mnsc",
+        "feedUrl": "https://rss.sciencedirect.com/publication/science/01482963",
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "journal-of-business-research",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "期刊",
+        "消费决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-journal-of-retailing",
+      "name": "Journal of Retailing",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://rss.sciencedirect.com/publication/science/00224359",
         "_aihot": {
           "initialBackfillLimit": 8
         }
       },
       "tier": "T1",
-      "owner_entity_id": "management-science",
+      "owner_entity_id": "journal-of-retailing",
       "participation_mode": "editorial",
-      "interval_minutes": 360,
+      "interval_minutes": 240,
       "tags": [
         "期刊",
-        "经济决策"
+        "消费决策"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-information-systems-research",
-      "name": "Information Systems Research",
+      "id": "rss-arxiv-cs-hc",
+      "name": "arXiv · cs.HC（人机交互）",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://pubsonline.informs.org/action/showFeed?type=etoc&feed=rss&jc=isre",
+        "feedUrl": "https://rss.arxiv.org/rss/cs.HC",
+        "summaryIsBody": true,
         "_aihot": {
-          "initialBackfillLimit": 6
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": [
+        "预印本",
+        "AI谄媚"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-arxiv-sycophancy-search",
+      "name": "arXiv · 关键词检索（sycophancy / LLM flattery）",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://export.arxiv.org/api/query?search_query=abs:sycophancy+OR+abs:%22LLM+flattery%22+OR+ti:sycophantic&sortBy=submittedDate&sortOrder=descending&max_results=30",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 15
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": [
+        "预印本",
+        "AI谄媚"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-arxiv-conspicuous-search",
+      "name": "arXiv · 关键词检索（conspicuous / status consumption）",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://export.arxiv.org/api/query?search_query=abs:%22conspicuous+consumption%22+OR+abs:%22status+consumption%22+OR+abs:%22luxury+consumption%22&sortBy=submittedDate&sortOrder=descending&max_results=20",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 15
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "预印本",
+        "消费决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "json-openalex-sycophancy",
+      "name": "OpenAlex · 关键词检索（sycophancy）",
+      "kind": "json_list",
+      "config": {
+        "url": "https://api.openalex.org/works?filter=title_and_abstract.search:sycophancy&sort=publication_date:desc&per_page=25",
+        "mode": "json_api",
+        "itemsPath": "results",
+        "titlePaths": ["title", "display_name"],
+        "urlTemplate": "{raw:doi}",
+        "urlTemplateFallback": "{raw:primary_location.landing_page_url}",
+        "publishedAtPath": "publication_date",
+        "_aihot": {
+          "initialBackfillLimit": 15
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "学术检索",
+        "AI谄媚"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "json-openalex-conspicuous-consumption",
+      "name": "OpenAlex · 关键词检索（conspicuous consumption）",
+      "kind": "json_list",
+      "config": {
+        "url": "https://api.openalex.org/works?filter=title_and_abstract.search:%22conspicuous%20consumption%22&sort=publication_date:desc&per_page=25",
+        "mode": "json_api",
+        "itemsPath": "results",
+        "titlePaths": ["title", "display_name"],
+        "urlTemplate": "{raw:doi}",
+        "urlTemplateFallback": "{raw:primary_location.landing_page_url}",
+        "publishedAtPath": "publication_date",
+        "_aihot": {
+          "initialBackfillLimit": 15
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "学术检索",
+        "消费决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "json-openalex-psychological-entitlement",
+      "name": "OpenAlex · 关键词检索（psychological entitlement）",
+      "kind": "json_list",
+      "config": {
+        "url": "https://api.openalex.org/works?filter=title_and_abstract.search:%22psychological%20entitlement%22&sort=publication_date:desc&per_page=25",
+        "mode": "json_api",
+        "itemsPath": "results",
+        "titlePaths": ["title", "display_name"],
+        "urlTemplate": "{raw:doi}",
+        "urlTemplateFallback": "{raw:primary_location.landing_page_url}",
+        "publishedAtPath": "publication_date",
+        "_aihot": {
+          "initialBackfillLimit": 15
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "学术检索",
+        "心理特权感"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "json-openalex-self-concept-clarity",
+      "name": "OpenAlex · 关键词检索（self-concept clarity）",
+      "kind": "json_list",
+      "config": {
+        "url": "https://api.openalex.org/works?filter=title_and_abstract.search:%22self-concept%20clarity%22&sort=publication_date:desc&per_page=25",
+        "mode": "json_api",
+        "itemsPath": "results",
+        "titlePaths": ["title", "display_name"],
+        "urlTemplate": "{raw:doi}",
+        "urlTemplateFallback": "{raw:primary_location.landing_page_url}",
+        "publishedAtPath": "publication_date",
+        "_aihot": {
+          "initialBackfillLimit": 15
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "学术检索",
+        "自我概念清晰度"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "json-crossref-journal-consumer-research",
+      "name": "Journal of Consumer Research（Crossref 期刊目录）",
+      "kind": "json_list",
+      "config": {
+        "url": "https://api.crossref.org/journals/0093-5301/works?sort=published&order=desc&rows=20",
+        "mode": "json_api",
+        "itemsPath": "message.items",
+        "titlePaths": ["title.0"],
+        "urlTemplate": "{raw:URL}",
+        "summaryPaths": ["abstract"],
+        "publishedAtPath": "created.date-time",
+        "_aihot": {
+          "initialBackfillLimit": 10
         }
       },
       "tier": "T1",
-      "owner_entity_id": "information-systems-research",
+      "owner_entity_id": "journal-of-consumer-research",
       "participation_mode": "editorial",
-      "interval_minutes": 360,
+      "interval_minutes": 240,
       "tags": [
         "期刊",
-        "人工智能"
+        "消费决策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "json-crossref-journal-personality-social-psychology",
+      "name": "Journal of Personality and Social Psychology（Crossref 期刊目录）",
+      "kind": "json_list",
+      "config": {
+        "url": "https://api.crossref.org/journals/0022-3514/works?sort=published&order=desc&rows=20",
+        "mode": "json_api",
+        "itemsPath": "message.items",
+        "titlePaths": ["title.0"],
+        "urlTemplate": "{raw:URL}",
+        "summaryPaths": ["abstract"],
+        "publishedAtPath": "created.date-time",
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "journal-of-personality-and-social-psychology",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": [
+        "期刊",
+        "判断/偏差"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
@@ -227,6 +382,7 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://rss.arxiv.org/rss/econ.GN",
+        "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 8
         }
@@ -237,154 +393,7 @@
       "interval_minutes": 240,
       "tags": [
         "预印本",
-        "经济决策"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-psychological-science",
-      "name": "Psychological Science（APS）",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.psychologicalscience.org/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "psych-science",
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "期刊",
-        "学会"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-plos-one-psychology",
-      "name": "PLOS ONE · 心理学",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://journals.plos.org/plosone/feed/atom?subjectArea=Psychology",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "plos",
-      "participation_mode": "editorial",
-      "interval_minutes": 240,
-      "tags": [
-        "期刊",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-frontiers-psychology",
-      "name": "Frontiers in Psychology",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.frontiersin.org/journals/psychology/rss",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": "frontiers-psychology",
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "期刊",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-nature-mental-health",
-      "name": "Nature Mental Health",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.nature.com/natmentalhealth.rss",
-        "_aihot": {
-          "initialBackfillLimit": 6
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "nature",
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "期刊",
-        "临床"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-sciencedaily-psychology",
-      "name": "ScienceDaily · 心理学研究",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.sciencedaily.com/rss/mind_brain/psychology.xml",
-        "_aihot": {
-          "initialBackfillLimit": 10
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "媒体",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-psypost",
-      "name": "PsyPost",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.psypost.org/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": "psypost",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "媒体",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-psychology-today",
-      "name": "Psychology Today · 最新",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.psychologytoday.com/us/front/feed",
-        "_aihot": {
-          "initialBackfillLimit": 6
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": "psychology-today",
-      "participation_mode": "editorial",
-      "interval_minutes": 240,
-      "tags": [
-        "媒体",
-        "科普"
+        "消费决策"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false

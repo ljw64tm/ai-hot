@@ -3,151 +3,82 @@
     {
       "key": "company",
       "name": "期刊与学会",
-      "blurb": "按期刊追踪：中外期刊上的心理学与决策研究"
+      "blurb": "按期刊追踪：消费心理学与人工智能方向的研究"
     },
     {
       "key": "field",
       "name": "研究方向",
-      "blurb": "按方向深挖：人工智能与经济决策、风险、消费、算法治理……"
+      "blurb": "按方向深挖：AI 谄媚、炫耀性消费、消费决策与算法治理……"
     },
     {
       "key": "genre",
       "name": "内容形态",
-      "blurb": "按内容类型浏览：研究、综述、决策实验、观点、政策……"
+      "blurb": "按内容类型浏览：研究、综述、行业动态、政策……"
     }
   ],
   "topics": [
     {
-      "slug": "china-journal",
-      "name": "心理学报",
-      "group": "company",
-      "entityId": "china-journal",
-      "definition": "《心理学报》的最新录用与发表：中文心理学研究的一手来源，覆盖认知、决策、社会、发展与测量。"
-    },
-    {
       "slug": "nature",
-      "name": "Nature 系列期刊",
+      "name": "Nature Machine Intelligence",
       "group": "company",
       "entityId": "nature",
-      "definition": "Nature Machine Intelligence、Nature Mental Health、Nature Human Behaviour 等子刊上的心理学、人工智能与行为科学研究。"
+      "definition": "Nature Machine Intelligence 上的人工智能研究，包括模型对齐、人类反馈学习与 AI 谄媚相关的技术进展。"
     },
     {
       "slug": "journal-of-economic-psychology",
       "name": "Journal of Economic Psychology",
       "group": "company",
       "entityId": "journal-of-economic-psychology",
-      "definition": "经济心理学主刊：消费、储蓄、投资与劳动决策中的心理机制与行为证据。"
-    },
-    {
-      "slug": "obhdp",
-      "name": "OBHDP",
-      "group": "company",
-      "entityId": "obhdp",
-      "definition": "Organizational Behavior and Human Decision Processes：组织情境中的判断、选择与决策过程研究。"
-    },
-    {
-      "slug": "cognition-journal",
-      "name": "Cognition",
-      "group": "company",
-      "entityId": "cognition-journal",
-      "definition": "Cognition 期刊的新发表：注意、记忆、语言、推理与决策的认知机制研究。"
+      "definition": "经济心理学主刊：消费与消费决策中的心理机制与行为证据，常刊出地位性消费与炫耀性消费的研究。"
     },
     {
       "slug": "frontiers-behavioral-economics",
       "name": "Frontiers in Behavioral Economics",
       "group": "company",
       "entityId": "frontiers-behavioral-economics",
-      "definition": "行为经济学的新研究：偏好、助推、激励设计与真实场景中的决策干预。"
-    },
-    {
-      "slug": "frontiers-psychology",
-      "name": "Frontiers in Psychology",
-      "group": "company",
-      "entityId": "frontiers-psychology",
-      "definition": "Frontiers in Psychology 的新发表：从认知实验到临床与应用研究。"
+      "definition": "行为经济学的新研究：偏好、助推、激励设计与真实场景中的消费决策干预。"
     },
     {
       "slug": "jbdm",
       "name": "Journal of Behavioral Decision Making",
       "group": "company",
       "entityId": "jbdm",
-      "definition": "行为决策期刊：判断与选择的理论、实验与应用研究。"
+      "definition": "行为决策期刊：判断与选择的理论、实验与应用研究，包含人对算法建议与 AI 反馈的信任与依赖。"
     },
     {
-      "slug": "springer-jru",
-      "name": "Journal of Risk and Uncertainty",
+      "slug": "journal-of-consumer-psychology",
+      "name": "Journal of Consumer Psychology",
       "group": "company",
-      "entityId": "springer-jru",
-      "definition": "风险与不确定性期刊：风险偏好、概率判断、保险与不确定条件下的选择。"
+      "entityId": "journal-of-consumer-psychology",
+      "definition": "消费心理学主刊：身份消费、品牌与自我概念、消费者判断中的心理机制，炫耀性消费研究的核心阵地。"
     },
     {
-      "slug": "management-science",
-      "name": "Management Science",
+      "slug": "journal-of-business-research",
+      "name": "Journal of Business Research",
       "group": "company",
-      "entityId": "management-science",
-      "definition": "Management Science 上与决策、行为运营、信息系统和人工智能应用相关的研究。"
+      "entityId": "journal-of-business-research",
+      "definition": "商业研究期刊：营销、消费者行为与人工智能在营销和消费场景中的应用研究。"
     },
     {
-      "slug": "information-systems-research",
-      "name": "Information Systems Research",
+      "slug": "journal-of-retailing",
+      "name": "Journal of Retailing",
       "group": "company",
-      "entityId": "information-systems-research",
-      "definition": "信息系统研究：算法与人工智能如何进入组织和个人决策，平台设计与治理的实证证据。"
+      "entityId": "journal-of-retailing",
+      "definition": "零售学期刊：零售场景中的消费者心理与购物行为研究。"
     },
     {
-      "slug": "psych-science",
-      "name": "Psychological Science",
+      "slug": "journal-of-consumer-research",
+      "name": "Journal of Consumer Research",
       "group": "company",
-      "entityId": "psych-science",
-      "definition": "心理科学协会（APS）的期刊与学会动态：心理学各方向的短论文与研究解读。"
+      "entityId": "journal-of-consumer-research",
+      "definition": "消费研究旗舰期刊：消费者行为、身份与消费、决策过程的理论与实证研究。"
     },
     {
-      "slug": "plos",
-      "name": "PLOS",
+      "slug": "journal-of-personality-and-social-psychology",
+      "name": "Journal of Personality and Social Psychology",
       "group": "company",
-      "entityId": "plos",
-      "definition": "PLOS 系列期刊上的心理学与心理健康研究，以开放获取论文为主。"
-    },
-    {
-      "slug": "psypost",
-      "name": "PsyPost",
-      "group": "company",
-      "entityId": "psypost",
-      "definition": "PsyPost 对最新心理学论文的报道与解读：把期刊研究讲给普通读者。"
-    },
-    {
-      "slug": "psychology-today",
-      "name": "Psychology Today",
-      "group": "company",
-      "entityId": "psychology-today",
-      "definition": "Psychology Today 的最新文章：从业者与研究者写给公众的心理学科普与观点。"
-    },
-    {
-      "slug": "economic-decision",
-      "name": "经济决策",
-      "group": "field",
-      "tags": [
-        "经济决策"
-      ],
-      "definition": "人工智能与经济决策这个核心方向的总入口：偏好与选择、行为经济学、决策干预与真实场景中的经济行为。"
-    },
-    {
-      "slug": "risk-uncertainty",
-      "name": "风险与不确定性",
-      "group": "field",
-      "tags": [
-        "风险/不确定性"
-      ],
-      "definition": "人在风险和不确定条件下怎么判断与选择：风险偏好、概率估计、模糊厌恶与保险决策。"
-    },
-    {
-      "slug": "intertemporal-choice",
-      "name": "跨期选择",
-      "group": "field",
-      "tags": [
-        "跨期选择"
-      ],
-      "definition": "现在与未来的权衡：延迟折扣、自我控制、储蓄与健康行为中的时间偏好研究。"
+      "entityId": "journal-of-personality-and-social-psychology",
+      "definition": "人格与社会心理学旗舰期刊：覆盖面很广，这里只追踪其中涉及 AI 对人的判断、信任与社会行为影响的研究。"
     },
     {
       "slug": "consumer-decision",
@@ -156,25 +87,7 @@
       "tags": [
         "消费决策"
       ],
-      "definition": "消费与市场中的心理学：价格与促销、选择过载、推荐系统与消费者福祉。"
-    },
-    {
-      "slug": "financial-decision",
-      "name": "金融决策",
-      "group": "field",
-      "tags": [
-        "金融决策"
-      ],
-      "definition": "投资、借贷与理财中的心理与行为：风险承担、过度自信、羊群行为与金融素养。"
-    },
-    {
-      "slug": "game-negotiation",
-      "name": "博弈与谈判",
-      "group": "field",
-      "tags": [
-        "博弈/谈判"
-      ],
-      "definition": "策略互动中的心理：信任与合作、公平与惩罚、谈判策略与社会偏好。"
+      "definition": "消费与市场中的心理学：价格与促销、选择过载、推荐系统与算法建议如何影响消费者的购买决策与福祉。"
     },
     {
       "slug": "judgment-bias",
@@ -183,7 +96,7 @@
       "tags": [
         "判断/偏差"
       ],
-      "definition": "判断的规律与偏差：启发式、锚定、框架效应、过度自信与预测校准。"
+      "definition": "判断的规律与偏差：锚定、框架效应、过度自信与预测校准，尤其是被 AI 的肯定或迎合如何放大或纠正这些偏差。"
     },
     {
       "slug": "machine-learning",
@@ -192,7 +105,7 @@
       "tags": [
         "机器学习"
       ],
-      "definition": "把机器学习、大模型用到心理与行为研究里的进展：预测建模、文本与影像分析、计算精神病学与测量新方法。"
+      "definition": "把机器学习、大模型用到消费与行为研究里的进展：预测建模、文本分析与 AI 谄媚的测量新方法。"
     },
     {
       "slug": "algorithmic-advice",
@@ -201,7 +114,7 @@
       "tags": [
         "算法建议"
       ],
-      "definition": "人怎么对待算法给出的建议：算法厌恶与依赖、自动化偏差、决策支持系统的效果与边界。"
+      "definition": "人怎么对待算法给出的建议：算法厌恶与依赖、自动化偏差、决策支持系统在消费与理财场景中的效果与边界。"
     },
     {
       "slug": "human-ai-collaboration",
@@ -210,7 +123,7 @@
       "tags": [
         "人机协作"
       ],
-      "definition": "人与 AI 分工时的行为与信任：协作绩效、责任归属、对 AI 能力的高估与低估。"
+      "definition": "人与 AI 分工时的行为与信任：协作绩效、对 AI 能力的高估与低估、AI 迎合如何改变人对协作结果的信心。"
     },
     {
       "slug": "algorithmic-fairness",
@@ -219,7 +132,7 @@
       "tags": [
         "算法公平"
       ],
-      "definition": "算法决策的公平与治理：偏见测量、可解释性与公众感知、监管与伦理争议。"
+      "definition": "算法决策的公平与治理：偏见测量、可解释性与公众感知，以及消费者保护视角下的监管与伦理争议。"
     },
     {
       "slug": "ai-persuasion",
@@ -228,7 +141,7 @@
       "tags": [
         "AI说服/操纵"
       ],
-      "definition": "生成式 AI 对信念与选择的影响：个性化说服、虚假信息、深度伪造与平台干预的实证研究。"
+      "definition": "生成式 AI 对信念与消费选择的影响：个性化说服、谄媚式话术与平台干预的实证研究。"
     },
     {
       "slug": "ai-sycophancy",
@@ -238,6 +151,24 @@
         "AI谄媚"
       ],
       "definition": "模型的迎合与附和：怎么测量和诱发，它如何改变人的判断、信心、依赖与纠错，用户反馈又如何反过来塑造模型行为。"
+    },
+    {
+      "slug": "psychological-entitlement",
+      "name": "心理特权感",
+      "group": "field",
+      "tags": [
+        "心理特权感"
+      ],
+      "definition": "心理特权感：认为自己理应获得优待、不必遵守对别人适用的规则的心理倾向，它的测量、成因，以及对炫耀性消费等行为后果的影响。"
+    },
+    {
+      "slug": "self-concept-clarity",
+      "name": "自我概念清晰度",
+      "group": "field",
+      "tags": [
+        "自我概念清晰度"
+      ],
+      "definition": "自我概念清晰度：一个人对自己是谁的认知有多清楚、稳定和内部一致，它如何调节人对赞美、反馈与认可的反应，以及对消费决策的影响。"
     },
     {
       "slug": "status-conspicuous",
@@ -258,184 +189,13 @@
       "definition": "奢侈品与品牌标识的心理学：品牌如何传递身份信号、真伪与溢价判断、仿冒品与品牌延伸的消费心理。"
     },
     {
-      "slug": "cognition",
-      "name": "认知",
-      "group": "field",
-      "tags": [
-        "认知"
-      ],
-      "definition": "注意、语言、推理与执行功能的认知研究：实验发现、机制解释与认知训练的证据。"
-    },
-    {
-      "slug": "memory-learning",
-      "name": "记忆与学习",
-      "group": "field",
-      "tags": [
-        "记忆/学习"
-      ],
-      "definition": "记忆与学习的进展：遗忘与巩固机制、有效学习方法与教育场景中的应用。"
-    },
-    {
-      "slug": "emotion",
-      "name": "情绪",
-      "group": "field",
-      "tags": [
-        "情绪"
-      ],
-      "definition": "情绪与决策的关系：情绪对风险判断与选择的影响、情绪调节与情绪测量。"
-    },
-    {
-      "slug": "personality",
-      "name": "人格",
-      "group": "field",
-      "tags": [
-        "人格"
-      ],
-      "definition": "人格心理学：特质结构与测量、人格与经济结果的关系、人格测评的争议。"
-    },
-    {
-      "slug": "social",
-      "name": "社会心理",
-      "group": "field",
-      "tags": [
-        "社会心理"
-      ],
-      "definition": "人与人之间：社会认知、态度与说服、群体行为、偏见与合作的研究。"
-    },
-    {
-      "slug": "development",
-      "name": "发展心理",
-      "group": "field",
-      "tags": [
-        "发展"
-      ],
-      "definition": "人的一生怎么变化：儿童与青少年的认知与社会化发展、成年期与老年期的心理变化。"
-    },
-    {
-      "slug": "children-youth",
-      "name": "儿童青少年",
-      "group": "field",
-      "tags": [
-        "儿童青少年"
-      ],
-      "definition": "儿童青少年的心理与行为：发展性决策、风险行为、屏幕与社交媒体使用、干预与筛查。"
-    },
-    {
-      "slug": "aging",
-      "name": "老年心理",
-      "group": "field",
-      "tags": [
-        "老年"
-      ],
-      "definition": "老年期的认知与决策：认知衰退的早期识别、老年金融决策与受骗风险、照护与干预。"
-    },
-    {
-      "slug": "neuroscience",
-      "name": "神经科学",
-      "group": "field",
-      "tags": [
-        "神经科学"
-      ],
-      "definition": "决策与心理活动的生物学基础：脑影像与电生理、神经调控、价值与奖赏的神经机制。"
-    },
-    {
-      "slug": "psychometrics",
-      "name": "心理测量",
-      "group": "field",
-      "tags": [
-        "心理测量"
-      ],
-      "definition": "测量与评估方法：量表编制与验证、信效度与常模、测量公平性与统计模型进展。"
-    },
-    {
-      "slug": "therapy",
-      "name": "心理治疗",
-      "group": "field",
-      "tags": [
-        "心理治疗"
-      ],
-      "definition": "心理治疗的方法与证据：认知行为疗法、正念与接纳承诺疗法、治疗关系与疗效机制。"
-    },
-    {
-      "slug": "clinical",
-      "name": "临床心理",
-      "group": "field",
-      "tags": [
-        "临床"
-      ],
-      "definition": "临床心理与精神卫生的证据：诊断、疗效、干预研究与真实世界数据。"
-    },
-    {
-      "slug": "anxiety",
-      "name": "焦虑",
-      "group": "field",
-      "tags": [
-        "焦虑"
-      ],
-      "definition": "焦虑的研究与临床进展：机制、评估工具、心理与药物治疗，以及焦虑对决策的影响。"
-    },
-    {
-      "slug": "depression",
-      "name": "抑郁",
-      "group": "field",
-      "tags": [
-        "抑郁"
-      ],
-      "definition": "抑郁的研究与治疗：风险因素、疗效比较、复发预防与数字干预的证据。"
-    },
-    {
-      "slug": "sleep",
-      "name": "睡眠",
-      "group": "field",
-      "tags": [
-        "睡眠"
-      ],
-      "definition": "睡眠与心理功能：失眠的认知行为治疗、睡眠与情绪和决策的关系、昼夜节律研究。"
-    },
-    {
-      "slug": "workplace",
-      "name": "职场与组织",
-      "group": "field",
-      "tags": [
-        "职场/组织"
-      ],
-      "definition": "工作场景里的心理学：职业倦怠、领导力与团队、招聘与绩效、AI 进入工作后的行为变化。"
-    },
-    {
-      "slug": "education",
-      "name": "教育心理",
-      "group": "field",
-      "tags": [
-        "教育"
-      ],
-      "definition": "学习与教学中的心理学：动机、反馈与评价、课堂干预、AI 辅助学习的效果。"
-    },
-    {
-      "slug": "health-psychology",
-      "name": "健康心理",
-      "group": "field",
-      "tags": [
-        "健康心理"
-      ],
-      "definition": "心理与身体健康的关系：压力与免疫、慢病自我管理、医患沟通与依从性、健康行为干预。"
-    },
-    {
-      "slug": "culture",
-      "name": "文化与跨文化",
-      "group": "field",
-      "tags": [
-        "文化/跨文化"
-      ],
-      "definition": "文化如何塑造心理与决策：跨文化比较、本土心理学与中国人的心理研究、文化适应。"
-    },
-    {
       "slug": "papers",
       "name": "论文研究",
       "group": "genre",
       "tags": [
         "论文/研究"
       ],
-      "definition": "值得读的心理学与决策研究：实验发现、机制解释、可重复性与方法进展的精选解读。"
+      "definition": "值得读的 AI 谄媚与炫耀性消费研究：实验发现、机制解释与方法进展的精选解读。"
     },
     {
       "slug": "reviews",
@@ -444,25 +204,16 @@
       "tags": [
         "评测/综述"
       ],
-      "definition": "元分析、系统综述与临床指南：把一批研究合起来看，给出当前证据的总体结论。"
+      "definition": "元分析与系统综述：把一批 AI 谄媚或炫耀性消费研究合起来看，给出当前证据的总体结论。"
     },
     {
-      "slug": "decision-studies",
-      "name": "决策研究",
+      "slug": "sycophancy-spending-studies",
+      "name": "AI 谄媚与消费研究",
       "group": "genre",
       "tags": [
-        "决策研究"
+        "谄媚消费"
       ],
-      "definition": "以人的判断与选择为对象的实验研究：行为实验、选择实验与现场实验。"
-    },
-    {
-      "slug": "ai-decision-studies",
-      "name": "AI 与决策研究",
-      "group": "genre",
-      "tags": [
-        "AI与决策"
-      ],
-      "definition": "把人工智能放进决策场景的研究：算法建议、人机协作、自动决策的信任与治理。"
+      "definition": "AI 的迎合、过度肯定如何影响消费决策，尤其是地位性与炫耀性消费的研究：机制、实证证据与行业回应。"
     },
     {
       "slug": "ai-sycophancy-studies",
@@ -483,31 +234,13 @@
       "definition": "以地位性消费与炫耀行为为对象的研究：动机、信号功能、平台上的展示行为与福祉代价。"
     },
     {
-      "slug": "assessment-tools",
-      "name": "测量工具",
-      "group": "genre",
-      "tags": [
-        "测量/评估"
-      ],
-      "definition": "量表与评估工具本身的进展：编制、修订、信效度验证与使用中的伦理问题。"
-    },
-    {
-      "slug": "practice",
-      "name": "实践方法",
-      "group": "genre",
-      "tags": [
-        "实践方法"
-      ],
-      "definition": "可以照着做的方法：干预方案、助推设计、工具包与咨询教育场景里的操作经验。"
-    },
-    {
       "slug": "industry",
       "name": "行业动态",
       "group": "genre",
       "tags": [
         "行业动态"
       ],
-      "definition": "心理与行为科学行业的脉搏：机构举措、资金与项目、人事与合作、服务市场的真实变化。"
+      "definition": "AI 公司与消费行业的脉搏：模型调性策略、资金与人事、服务市场的真实变化。"
     },
     {
       "slug": "policy",
@@ -516,7 +249,7 @@
       "tags": [
         "政策/监管"
       ],
-      "definition": "心理学与人工智能相关的政策法规：算法治理、数据与伦理规范、心理健康政策与资源配置。"
+      "definition": "AI 谄媚与炫耀性消费相关的政策法规：消费者保护、广告监管、算法治理与伦理规范。"
     }
   ]
 }

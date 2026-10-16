@@ -56,9 +56,9 @@ const provider = await stub((_hit, req) => {
   }
   if (step === "understand") {
     if (marker === "SENSITIVE") return new Reply(400, { contentFilter: [{ level: 1, role: "user" }], error: { code: "1301", message: "系统检测到输入或生成内容可能包含不安全或敏感内容" } });
-    return answer({ itemType: "research_paper", authorRole: "principal", tags: ["论文/研究", "认知", "睡眠", "不存在的标签"], editorialJudgment: `理由 ${marker}`, titleZh: `理解标题 ${marker}`, summaryZh: `理解摘要 ${marker}。第二句补充一个关键数字。` });
+    return answer({ itemType: "research_paper", authorRole: "principal", tags: ["论文/研究", "AI谄媚", "炫耀性消费", "不存在的标签"], editorialJudgment: `理由 ${marker}`, titleZh: `理解标题 ${marker}`, summaryZh: `理解摘要 ${marker}。第二句补充一个关键数字。` });
   }
-  if (step === "structure") return answer({ category: "research", tags: ["论文/研究", "认知"], subjects: ["apa", "unknown-co"], scope: "single", fact: { title: `事实 ${marker}`, subject: "某机构", action: "发表", object: "研究", occurredAt: null, evidence: "a lab released a model", conditions: [] } });
+  if (step === "structure") return answer({ category: "ai-sycophancy", tags: ["AI谄媚", "地位/炫耀"], subjects: ["nature", "unknown-co"], scope: "single", fact: { title: `事实 ${marker}`, subject: "某机构", action: "发表", object: "研究", occurredAt: null, evidence: "a lab released a model", conditions: [] } });
   return answer(`title_zh: 翻译标题 ${marker}\nsummary_zh: 翻译摘要 ${marker}。第二句补充影响。`);
 });
 pointModels(provider.url);
@@ -93,10 +93,10 @@ test("a selected item: prefilter, two scores, the content understanding and the 
   assert.deepEqual([res!.output!.selected, res!.output!.score], [true, T1 + 1], `${T1 + 3} + ${T1 - 1} >= 2 × ${T1}; the mean is shown`);
   assert.deepEqual(calls("CLEAR").sort(), ["prefilter", "score", "score", "structure", "understand"]);
   const r = await row(id);
-  assert.deepEqual([r.title_zh, r.reason_zh, r.category, r.receipt_ids.length], ["理解标题 CLEAR", "理由 CLEAR", "research", 5]);
+  assert.deepEqual([r.title_zh, r.reason_zh, r.category, r.receipt_ids.length], ["理解标题 CLEAR", "理由 CLEAR", "ai-sycophancy", 5]);
   // Failure case: the writer's independent labels contradict the structural category.
-  assert.deepEqual(r.tags, ["论文/研究", "认知", "APA"], "category and tags come from the same structural judgement, plus the verified subject tag");
-  assert.deepEqual(r.subjects, ["apa"]);
+  assert.deepEqual(r.tags, ["AI谄媚", "地位/炫耀", "Nature"], "category and tags come from the same structural judgement, plus the verified subject tag");
+  assert.deepEqual(r.subjects, ["nature"]);
   assert.deepEqual([r.output.writer, r.output.itemType, r.output.prefilter.label, r.output.fact.title], ["understand", "research_paper", "PASS", "事实 CLEAR"]);
   assert.equal(r.output.scope, "single");
   assert.equal(r.output.fact.evidence, "a lab released a model");
@@ -149,7 +149,7 @@ test("structure retains grounded conditions, rejects invented or unseen quotes, 
     { text: "无限免费", quote: "Unlimited free access for everyone." },
     { text: "不在模型输入里的句子", quote: "This late detail was not sent." },
   ] };
-  const base = { category: "research", tags: [], subjects: [], fact: frame };
+  const base = { category: "ai-sycophancy", tags: [], subjects: [], fact: frame };
   const out = normalizeStructure(StructureSchema.parse(base), input);
   assert.ok(buildMaterial(input).includes("Only available in the US."), "a condition after the old 7000-character cutoff reaches the model");
   assert.ok(buildMaterial(input).includes("后文未提供"));
@@ -179,7 +179,7 @@ test("a near-selected item is written like a selected one; below the floor it is
   const low = await analyzeArticle(lowId);
   assert.deepEqual([low!.output!.selected, low!.output!.titleZh, low!.output!.reasonZh], [false, "翻译标题 LOW", null]);
   assert.deepEqual(calls("LOW").sort(), ["prefilter", "score", "score", "structure", "summarize"]);
-  assert.deepEqual((await row(lowId)).tags, ["论文/研究", "认知", "APA"], "structure tags");
+  assert.deepEqual((await row(lowId)).tags, ["AI谄媚", "地位/炫耀", "Nature"], "structure tags");
 });
 
 test("the prefilter's BLOCK stops everything; UNKNOWN with material goes on like PASS", async () => {
@@ -231,7 +231,7 @@ test("a short post in Chinese is its own copy; a content-filter refusal is trans
 
 test("guards: an institution the input does not name is not written in; long summaries are cut at sentences", () => {
   const input = { title: "某研究团队发布新结果", text: "某研究团队发布了一项新结果，样本量和效应量都有说明。", sourceKind: "rss" };
-  const guarded = enforceIdentity(input, { titleZh: "APA 发布新结果", summaryZh: "某研究团队发布新结果。" });
+  const guarded = enforceIdentity(input, { titleZh: "Nature Machine Intelligence 发布新结果", summaryZh: "某研究团队发布新结果。" });
   assert.deepEqual([guarded.titleZh, guarded.summaryZh, guarded.identityGuard.outcome], ["某研究团队发布新结果", "某研究团队发布新结果。", "fallback"]);
   // The identity lexicon: a Chinese rendering of an institution the input names in English is no invention.
   const harvard = { title: "Harvard reports a new cohort study", text: "Harvard reported a cohort study with sample sizes.", sourceKind: "rss" };
